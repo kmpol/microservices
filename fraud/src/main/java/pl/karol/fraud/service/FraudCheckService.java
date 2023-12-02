@@ -2,7 +2,7 @@ package pl.karol.fraud.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.karol.fraud.FraudCheckHistory;
+import pl.karol.fraud.model.FraudCheckHistory;
 import pl.karol.fraud.repository.FraudCheckHistoryRepository;
 
 import java.time.LocalDateTime;

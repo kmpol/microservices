@@ -1,4 +1,4 @@
-package pl.karol.fraud;
+package pl.karol.fraud.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
