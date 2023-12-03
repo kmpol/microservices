@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.karol.fraud.response.FraudCheckResponse;
+import pl.karol.clients.fraud.FraudCheckResponse;
 import pl.karol.fraud.service.FraudCheckService;
 
 @RestController

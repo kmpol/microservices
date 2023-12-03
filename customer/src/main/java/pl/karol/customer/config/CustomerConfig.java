@@ -1,4 +1,4 @@
-package pl.karol.customer;
+package pl.karol.customer.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
