@@ -12,6 +12,7 @@
         <module name="eureka-server" />
         <module name="fraud" />
         <module name="customer" />
+        <module name="api-gtw" />
       </profile>
     </annotationProcessing>
   </component>
