@@ -18,7 +18,8 @@
     <module>eureka-server</module>
     <module>clients</module>
     <module>notification</module>
-      <module>api-gtw</module>
+    <module>api-gtw</module>
+      <module>amqp</module>
   </modules>
 
   <properties>

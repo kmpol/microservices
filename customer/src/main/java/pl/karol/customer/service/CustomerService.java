@@ -2,6 +2,7 @@ package pl.karol.customer.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.karol.amqp.RabbitMQMessageProducer;
 import pl.karol.clients.fraud.FraudClient;
 import pl.karol.clients.fraud.FraudCheckResponse;
 import pl.karol.clients.notification.NotificationClient;
@@ -16,7 +17,7 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
     private final FraudClient fraudClient;
-    private final NotificationClient notificationClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder().firstName(request.firstName()).lastName(request.lastName()).email(request.email()).build();
@@ -28,6 +29,12 @@ public class CustomerService {
             throw new IllegalStateException("fraudster");
         }
 
-        notificationClient.saveNotification(new NotificationRequest(customer.getId(), customer.getEmail(), "Hello world"));
+        NotificationRequest notificationRequest = new NotificationRequest(customer.getId(), customer.getEmail(), "Hello world");
+
+        rabbitMQMessageProducer.publish(
+                notificationRequest,
+                "internal.exchange",
+                "internal.notification.routing-key"
+        );
     }
 }
