@@ -25,6 +25,7 @@ public class CustomerService {
 
         FraudCheckResponse fraudCheckResponse = fraudClient.isFraudster(customer.getId());
 
+        //TODO: Handle it better later on in final commits
         if (fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("fraudster");
         }
